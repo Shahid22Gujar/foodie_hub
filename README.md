@@ -6,3 +6,8 @@
 
 ## Deployed URL
 - [FoodieHub Meal Application](https://foodiehubmodule8.netlify.app/)
+
+## Command to deploy React Vite App
+- `npm install netlify-cli -g`
+- `netlify init`
+
