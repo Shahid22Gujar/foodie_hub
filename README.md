@@ -5,4 +5,4 @@
 - `npm run dev`
 
 ## Deployed URL
-- [FoodieHub Meal Application](https://foodiehub-meal-app.herokuapp.com/)"# foodie_hub" 
+- [FoodieHub Meal Application](https://foodiehubmodule8.netlify.app/)
