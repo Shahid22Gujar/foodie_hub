@@ -55,9 +55,11 @@ const Meals = () => {
     cartCtx.addItem({ ...meal, quantity: 1 });
   };
   return (
-    <Container className="mt-5 pt-5">
+    <Container className="mt-5 pt-5 mx-auto">
+      {/* mx-auto is center alignment and adjusting responsiveness */}
       <h2 className="mb-4">Available Meals</h2>
-      {loading?(<p>Loading...</p>):meals.map((meal) => (
+      <div className="border p-3 h-100 shadow-sm rounded">
+        {loading?(<p>Loading...</p>):meals.map((meal) => (
         <IndividualMealItem
           key={meal.id}
           name={meal.name}
@@ -67,6 +69,8 @@ const Meals = () => {
           onAddToCart={() => addToCartHandler(meal)}
         />
       ))}
+      </div>
+      
     </Container>
   );
 };

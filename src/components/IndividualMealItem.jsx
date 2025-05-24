@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const IndividualMealItem = ({ name, description, price, image, onAddToCart }) => {
   return (
-    <Card className="mb-3" style={{ maxWidth: "300px" }}>
+    <Card className="mb-3">
       <Card.Img variant="top" src={image} style={{ height: "200px", objectFit: "cover" }} />
       <Card.Body>
         <Card.Title style={{ fontSize: "1rem" }}>{name}</Card.Title>
