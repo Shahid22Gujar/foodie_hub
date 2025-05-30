@@ -12,11 +12,11 @@ const portalElement = document.getElementById("overlays");
 const CartModal = ({ show, onClose }) => {
   const cartCtx = useContext(CartContext);
   // src/components/CartModal.js
- const clearCartHandler = () => {
-  if (window.confirm("Are you sure you want to clear the cart?")) {
-    cartCtx.clearCart();
-  }
-};
+  const clearCartHandler = () => {
+    if (window.confirm("Are you sure you want to clear the cart?")) {
+      cartCtx.clearCart();
+    }
+  };
 
   return ReactDOM.createPortal(
     <CSSTransition in={show} timeout={300} classNames="fade" unmountOnExit>
@@ -51,8 +51,12 @@ const CartModal = ({ show, onClose }) => {
                     />
                     <div>
                       <strong>{item.name}</strong>
-                      <p className="mb-0 text-muted small">{item.description.slice(0,100)}...</p>
-                      <p className="mb-0"><strong>${item.price.toFixed(2)}</strong></p>
+                      <p className="mb-0 text-muted small">
+                        {item.description.slice(0, 100)}...
+                      </p>
+                      <p className="mb-0">
+                        <strong>${item.price.toFixed(2)}</strong>
+                      </p>
                     </div>
                   </div>
                   <div className="text-end mt-2 mt-md-0">
@@ -63,7 +67,15 @@ const CartModal = ({ show, onClose }) => {
                       className="mt-2"
                       onClick={() => cartCtx.removeItem(item.id)}
                     >
-                      Remove
+                      -
+                    </Button>
+                    <Button
+                      variant="outline-success"
+                      size="sm"
+                      className="mt-2"
+                      onClick={() => cartCtx.addItem({ ...item, quantity: 1 })}
+                    >
+                      +
                     </Button>
                   </div>
                 </ListGroup.Item>
@@ -82,16 +94,17 @@ const CartModal = ({ show, onClose }) => {
             <Button variant="danger" onClick={clearCartHandler}>
               Clear Cart
             </Button>
-            <Button variant="primary" onClick={() =>{
-              if(cartCtx.items.length){
-                alert("Order Placed!")
-                cartCtx.clearCart();
-              }
-              else{
-                alert("Cart is empty!")
-              }
-             
-            }}>
+            <Button
+              variant="primary"
+              onClick={() => {
+                if (cartCtx.items.length) {
+                  alert("Order Placed!");
+                  cartCtx.clearCart();
+                } else {
+                  alert("Cart is empty!");
+                }
+              }}
+            >
               Order Now
             </Button>
           </div>
